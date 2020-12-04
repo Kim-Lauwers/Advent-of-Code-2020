@@ -15,9 +15,6 @@ import static java.nio.file.Files.lines;
 import static java.util.stream.Collectors.toUnmodifiableList;
 
 public class Day04 {
-
-    private static final char TREE = '#';
-
     public static void main(final String[] args) throws Exception {
         final Path path = Paths.get(Day03.class.getClassLoader().getResource("input.txt").toURI());
 
