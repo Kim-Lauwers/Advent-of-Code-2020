@@ -10,7 +10,7 @@ import static java.util.stream.Collectors.toUnmodifiableList;
 public class Day01Part2 {
 
     public static void main(String[] args) throws Exception {
-        final Path path = Paths.get(Day02Part2.class.getClassLoader().getResource("input.txt").toURI());
+        final Path path = Paths.get(Day01Part2.class.getClassLoader().getResource("input.txt").toURI());
         final List<Integer> integers = lines(path)
                 .map(Integer::parseInt)
                 .collect(toUnmodifiableList());
