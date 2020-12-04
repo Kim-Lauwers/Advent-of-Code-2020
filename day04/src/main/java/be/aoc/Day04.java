@@ -7,12 +7,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
-import static java.nio.file.Files.lines;
-import static java.util.stream.Collectors.toUnmodifiableList;
 
 public class Day04 {
     public static void main(final String[] args) throws Exception {
@@ -25,9 +19,9 @@ public class Day04 {
             while ((readLine = br.readLine()) != null) {
                 if (readLine.isEmpty()) {
                     lines.add(line);
-                    line="";
+                    line = "";
                 } else {
-                    line += " "+readLine;
+                    line += " " + readLine;
                 }
             }
             lines.add(line);
