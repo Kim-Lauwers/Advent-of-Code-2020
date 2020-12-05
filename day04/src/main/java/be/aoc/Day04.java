@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Day04 {
     public static void main(final String[] args) throws Exception {
-        final Path path = Paths.get(Day03.class.getClassLoader().getResource("input.txt").toURI());
+        final Path path = Paths.get(Day04.class.getClassLoader().getResource("input.txt").toURI());
 
         final List<String> lines = new ArrayList<>();
         try (final BufferedReader br = new BufferedReader(new FileReader(path.toFile()))) {
