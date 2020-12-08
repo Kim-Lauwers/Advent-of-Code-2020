@@ -1,15 +1,12 @@
 package be.aoc;
 
-import javax.sound.sampled.Line;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 import static java.nio.file.Files.lines;
 import static java.util.UUID.randomUUID;
@@ -27,7 +24,7 @@ public class Day08 {
                 .map(Instruction::toInstruction)
                 .collect(toUnmodifiableList());
 
-        System.out.println("Value of accumulator: " + solveOne(null,instructions));
+        System.out.println("Value of accumulator: " + solveOne(null, instructions));
         System.out.println("Value of accumulator: " + solveTwo(instructions));
     }
 
@@ -64,7 +61,7 @@ public class Day08 {
         return 0;
     }
 
-    static boolean checkForInfiniteLoops(final Instruction currentInstruction, final  List<Instruction> instructions) {
+    static boolean checkForInfiniteLoops(final Instruction currentInstruction, final List<Instruction> instructions) {
         Set<Instruction> executedInstructions = new HashSet<>();
         for (int i = 0; i < instructions.size(); i++) {
             Instruction instruction = instructions.get(i);
@@ -84,26 +81,26 @@ public class Day08 {
         private final String operation;
         private final int argument;
 
-         Instruction(final String operation, int argument) {
-            this.id= randomUUID();
+        Instruction(final String operation, int argument) {
+            this.id = randomUUID();
             this.operation = operation;
             this.argument = argument;
-        }
-
-        public String getOperation(final UUID id) {
-             if(this.id.equals(id) && !ACCUMULATOR_INSTRUCTION.equals(operation)){
-                 return JUMP_INSTRUCTION.equalsIgnoreCase(operation) ? NO_OPERATION : JUMP_INSTRUCTION;
-             }
-            return operation;
-        }
-
-        public int getArgument() {
-            return argument;
         }
 
         static Instruction toInstruction(final String instruction) {
             final String[] splitted = instruction.split("\\s+");
             return new Instruction(splitted[0], Integer.parseInt(splitted[1]));
+        }
+
+        public String getOperation(final UUID id) {
+            if (this.id.equals(id) && !ACCUMULATOR_INSTRUCTION.equals(operation)) {
+                return JUMP_INSTRUCTION.equalsIgnoreCase(operation) ? NO_OPERATION : JUMP_INSTRUCTION;
+            }
+            return operation;
+        }
+
+        public int getArgument() {
+            return argument;
         }
 
         @Override
